@@ -51,7 +51,10 @@ class NoteItem extends StatelessWidget {
                   color: Colors.black,
                   size: 30,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  // Delete note from the database
+                  note.delete();
+                },
               ),
             ),
             Padding(
