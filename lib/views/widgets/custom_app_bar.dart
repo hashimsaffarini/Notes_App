@@ -3,12 +3,13 @@ import 'package:notes_app/views/widgets/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   final IconData icon;
-
   final String title;
+  final void Function()? onPressed;
   const CustomAppBar({
     super.key,
     required this.title,
     required this.icon,
+    this.onPressed,
   });
 
   @override
@@ -17,13 +18,16 @@ class CustomAppBar extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
         ),
-        Spacer(),
-        CustomSearchIcon(icon: icon),
+        const Spacer(),
+        CustomIcon(
+          icon: icon,
+          onPressed: onPressed,
+        ),
       ],
     );
   }
